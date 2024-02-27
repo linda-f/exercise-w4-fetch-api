@@ -108,6 +108,24 @@ fetchBulbasaurData()
 //    Copy that line into the fetchBulbasaurData and hopefully
 //    the image in the HTML updates.
 
+const changeData = () => {
+  
+}
+
+const fetchBulbasaurData2 = () => {
+  fetch("https://pokeapi.co/api/v2/pokemon/1/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      console.log(json)
+    })
+    const newImg = json.sprites.front_default
+    image.innerText = newImg
+};
+fetchBulbasaurData2()
+
+
 // 6) Update the innerHTML of the other rows as well after
 //    you've found the correct path in the json.
 //    HINT --> Log stuff in the console to try things out
