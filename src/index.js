@@ -18,19 +18,62 @@ const types = document.getElementById("types");
 //    it's fetching the pokemons from the pokemon endpoint and
 //    logs the results in the console.
 //    HINT --> Don't forget to invoke the function
-
+/*Fetch all pokemons here*/
 const fetchPokemons = () => {
-  /*Fetch all pokemons here*/
+  fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      console.log(json)
+    })
 };
+fetchPokemons()
 
 // 2) a) As you can see, we get some metadata as well as
 //    the results of the fetch. Change the console.log so
 //    that you only log the array of pokemon objects.
+const fetchPokemons2 = () => {
+  fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      console.log(json.results)
+    })
+};
+fetchPokemons2()
 
 //    b) Log only the name of the first pokemon in the
 //    pokemon objects array
+const fetchPokemons3 = () => {
+  fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      console.log(json.results[0].name)
+    })
+};
+fetchPokemons3()
 
 //    c) Log the names of all pokemons in the array
+const fetchPokemons4 = () => {
+  fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      for (let i = 0; i < json.results.length; i++) {
+        console.log(json.results[i].name)
+      }
+      /*json.results[i].forEach(name => {
+        console.log(name)
+      });*/
+      //console.log(json.results[i].name)
+    })
+};
+fetchPokemons4()
 
 // 3) You might know that there are more than 20 pokemons
 //    in the pokedex. Add a query parameter
@@ -38,16 +81,24 @@ const fetchPokemons = () => {
 //    choice, like this: https://pokeapi.co/api/v2/pokemon/?limit=151
 //    and pick a pokemon that you would like to continue
 //    working with. Copy the pokemon's URL.
+//https://pokeapi.co/api/v2/pokemon/1/
 
 // 4) Now that we've picked a pokemon, we will do a new fetch
 //    to the URL we copied. Since that's another endpoint,
 //    we will create a new fetch inside the fetchBulbasaurData
 //    function (change the function's name to fit your pokemon).
 //    Log the data in the console and see what you find.
-
+/*Fetch singular pokemon here*/
 const fetchBulbasaurData = () => {
-  /*Fetch singular pokemon here*/
+  fetch("https://pokeapi.co/api/v2/pokemon/1/")
+    .then ((response) => {
+      return response.json()
+    })
+    .then ((json) => {
+      console.log(json)
+    })
 };
+fetchBulbasaurData()
 
 // 5) After familiarizing with the data, we will use the data
 //    to change our table. We will give you the image as a start.
